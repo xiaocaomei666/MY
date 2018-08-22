@@ -1,0 +1,38 @@
+/* pages/question-desc/question-desc.wxss */
+
+.question-desc {
+  padding: 0 30rpx 30rpx 30rpx;
+  background-color: #fff;
+  height: 600rpx;
+  border-top: 1rpx solid #e0e0e0;
+  position: relative;
+}
+
+/*问题题目  */
+
+.desc-title {
+  border-bottom: 1rpx solid #e0e0e0;
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: left;
+  padding-left: 10rpx;
+  font-weight: bold;
+}
+
+/*问题内容  */
+.desc-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 15rpx;
+  height: 400rpx;
+  line-height: 55rpx;
+  text-align: left;
+}
+
+.activity_img{
+  width: 100%;
+  height: 300rpx;
+}

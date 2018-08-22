@@ -1,0 +1,77 @@
+/* pages/questions/questions.wxss */
+
+.questions {
+  height: 100%;
+  background-color: #fff;
+  padding: 60rpx 30rpx;
+  font-size: 30rpx;
+  border-top: 1rpx solid #e0e0e0;
+}
+
+.question-view {
+  position: relative;
+  text-align: left;
+  padding-left: 10rpx;
+  font-weight: 600;
+  margin-bottom: 60rpx;
+}
+
+/*箭头  */
+
+.icon-questions {
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 1px solid rgb(53, 53, 53);
+  border-right: 1px solid rgb(53, 53, 53);
+  position: absolute;
+  top: 20%;
+  right: 20rpx;
+  transform: rotate(45deg);
+  transition: transform 0.5s;
+}
+
+.icon-rotate {
+  transform: rotate(135deg);
+  transform-origin: 50% 50%;
+  transition: transform 0.3s;
+}
+
+/*展示的区域  */
+
+.question-class {
+  padding: 0;
+  font-size: 26rpx;
+  margin-bottom: 30rpx;
+}
+
+.question-class-active {
+  padding-bottom: 30rpx;
+}
+
+.question-show {
+  text-align: left;
+  transition: all 5s;
+}
+
+.question-hide {
+  display: none;
+  transition: all 5s;
+}
+
+.question-show-view {
+  padding-bottom: 30rpx;
+}
+
+.question-show-view view {
+  width: 680rpx;
+  padding: 20rpx 0;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid rgb(178, 178, 178);
+  margin-bottom: 0;
+}
+
+.cl0cc{
+  color: #69C3AA;
+}

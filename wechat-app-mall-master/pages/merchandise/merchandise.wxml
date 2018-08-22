@@ -1,0 +1,104 @@
+<!--pages/merchandise/merchandise.wxml-->
+<view class="page">
+  <!--轮播图  -->
+  <swiper indicator-dots='true' indicator-active-color='#69C3AA' indicator-color='#fff' current='0' circular='true' class="index-swiper-slider">
+    <block wx:for="{{indexSlider}}" wx:for-index="index" wx:key="index">
+      <swiper-item>
+        <image src='{{item.img}}' class="index-slider-images" data-path="{{item.path}}" data-index="{{index}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--商品详情  -->
+  <view class="parti">
+    <view class="title">{{des.title}}</view>
+    <view class="declare">{{des.declare}}</view>
+    <view class="price">￥{{des.price}}
+      <text class="text-del" wx:if="{{des.pricedel}}">￥{{des.pricedel}}</text>
+    </view>
+  </view>
+
+  <!--商品规格  -->
+  <view class="spec" bindtap='show'>
+    <text class="tet1">请选择</text>
+    <text class="tet2">请选择商品/数量</text>
+    <view class="{{iconshow?'icon-down':'icon-right'}}"></view>
+  </view>
+  <view class="{{showproduct==false?'spec-content-active':'spec-content'}}">
+    <view class="list">
+      <text class="pr50">类型</text>
+      <view class="pin">
+        <view wx:for="{{category}}" wx:key="index" data-index='{{index}}' class="{{clickProduct1==index?'pins-active':'pins'}}" bindtap='clickProductName'>{{item}}</view>
+      </view>
+    </view>
+    <view class="list">
+      <text class="pr50" wx:if="{{optionId<3}}">规格</text>
+      <text class="pr50" wx:else>食堂</text>
+      <view class="pin">
+        <view wx:for="{{litre}}" wx:key="index" data-index='{{index}}' class="{{clickProduct3==index?'pins-active':'pins2'}}" bindtap='clickProductSize'>{{item}}</view>
+      </view>
+    </view>
+    <view class="list">
+      <text class="pr50">数量</text>
+      <view class='water-list-right'>
+        <text class='water-jian' bindtap='minusCounts' data-index="{{index}}">-</text>
+        <input value='{{num}}' class="numb" type='number' bindinput='listNumInput' maxlength='3' bindblur="listNumZeoro"></input>
+        <text class='water-jia' bindtap='addCounts' data-index="{{index}}">+</text>
+      </view>
+    </view>
+    <view class="list">
+      <image src='../../images/icon_get.png' class="icon-get"></image>
+      <text class="gify">{{gift}}</text>
+    </view>
+  </view>
+  <view class="addr">
+    <view class="addr-centent" bindtap='addrs'>
+      <text class="send">送至</text>
+      <image src='../../images/addr.png' class="addrimg"></image>
+      <text class="">广东省广州市天河区林和街道</text>
+      <view class="icon-right2"></view>
+      <!-- <image src='../../images/icon_dian.png' class="drop2"></image> -->
+    </view>
+    <view class="sale">
+      <image src='../../images/icon_get.png' class="icon-get"></image>
+      <text class="pr40">预约送 准时达</text>
+      <image src='../../images/icon_get.png' class="icon-get"></image>
+      <text>免配送费</text>
+    </view>
+  </view>
+
+  <!--产品详情  -->
+  <view class="product">
+    <text>商品详情</text>
+    <view wx:for="{{product}}" wx:key="index">
+      <image src='{{item.img}}' class="proimg"></image>
+    </view>
+  </view>
+
+  <!--回到顶部  -->
+  <view class="to_top" catchtap='totop' wx:if="{{isTotop}}">
+    <image src='../../images/to_top.png' class="tops"></image>
+  </view>
+
+  <!--客服 购物车 加入购物车 立即购买  -->
+  <view class="home-chat-buy">
+    <view class="gooddesc-fixed">
+      <image src='{{bottomimg.img1}}'></image>
+      <text>微信客服</text>
+      <button open-type="contact"></button>
+    </view>
+
+    <view class="gooddesc-fixed gooddesc-button" bindtap='car'>
+      <image src='{{bottomimg.img2}}'></image>
+      <text>购物车</text>
+      <text class="redcricle" wx:if="{{redshow}}" style='color:#fff'>{{carnum}}</text>
+    </view>
+
+    <view class="add-fixed" bindtap='addcars'>
+      <text>加入购物车</text>
+    </view>
+    <view class="buy-fixed">
+      <button class="buy-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即购买</button>
+    </view>
+  </view>
+</view>

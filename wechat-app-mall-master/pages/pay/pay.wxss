@@ -1,0 +1,70 @@
+/* pages/pay/pay.wxss */
+page {
+  background: #fdfdfd;
+}
+/*底部固定按钮开始*/
+.PayBottom {
+  position: fixed;
+  bottom:0;
+  left:0;
+  width: 100%;
+  height: 100rpx;
+  border-top: 10rpx solid #f8f8f8; 
+}
+.PayBottom view {
+  float: left;
+  font-size: 28rpx;
+  color: #494949;
+}
+.payBottom-left {
+  width: 49%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  border-right: 1px solid #dcdcdc;
+}
+.payBottom-right {
+  width: 49%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+/*底部固定按钮结束*/
+/*头部开始  */
+.PayBigBox {
+  padding-top: 70rpx;
+}
+.PayTitle-box {
+ margin-top:30rpx;
+}
+.PayTitle-explain{
+  padding-top: 30rpx;
+  font-size: 25rpx;
+  color:rgb(116, 119, 134);
+}
+/*头部结束  */
+
+/* 中部开始 */
+.PayCenter {
+  margin-top: 84rpx;
+  margin-left: 84rpx;
+  margin-right: 84rpx;
+}
+.PayMessage-Title{
+  font-size: 28rpx;
+  color: #696969;
+  margin-bottom: 36rpx;
+  display: flex;
+  justify-content: space-between ;
+}
+.PayBtn {
+  margin-top:50rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  background: #69C3AA;
+  color: #fff;
+}
+/* 中部结束 */

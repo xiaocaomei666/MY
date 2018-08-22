@@ -1,0 +1,89 @@
+<view class="container">
+  <!--轮播图  -->
+  <view class="swiper-container">
+    <swiper class="swiper_box" autoplay="{{autoplay}}" bindchange="swiperchange" circular='false' indicator-dots='true' indicator-color="#fff" indicator-active-color="#06C1AE">
+      <block wx:for="{{banners}}" wx:key="index">
+        <swiper-item>
+          <image bindtap="tapBanner" data-index="{{index}}" src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!--分类  -->
+  <view class="type-container">
+    <scroll-view class="type-navbar" scroll-x="true">
+      <view class="type-box" wx:for-items="{{categories}}" wx:key="id">
+        <view id="{{item.id}}" class="type-navbar-item {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick">
+          <image src='{{item.img}}'></image>
+          <text>{{item.desc}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!--搜索  -->
+  <!-- <view class="search-view" style="background:{{ scrollTop === 0 ?'-webkit-linear-gradient(top, rgba(105,195,170, 1), rgba(105,195,170, 0.3))' :( scrollTop<200 ? 'rgba(105,195,170,'+(scrollTop/400+0.3) +')' : 'rgba(105,195,170,1)')  }} ">
+    <view class="serarch-content">
+      <image src="/images/index/search-pic.png" class="search-icon" />
+      <input placeholder="请输入搜索内容" class="search-input" maxlength="30" confirm-type="搜索" bindinput='listenerSearchInput' bindconfirm='toSearch'>
+      </input>
+      <button class='search-btn' bindtap="toSearch">搜索</button>
+    </view>
+  </view> -->
+
+  <!--公告  -->
+  <view wx:if="{{noticeList}}" class="notice">
+    <view class="notice_iteml">公告：</view>
+    <swiper wx:if="{{noticeList}}" class="notice_swiper" vertical="true" autoplay="true" circular="true" interval="3000">
+      <view wx:for-items="{{noticeList}}" wx:for-index="index" wx:key="index" data-index="{{index}}" bindtap='toDetail'>
+        <swiper-item>
+          <view class="notice_itemr">{{item.title}}</view>
+        </swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+  <!--活动  -->
+  <view class="activity">
+    <view class="activity-img" wx:for="{{activityBean}}"  wx:for-index="index" wx:key="index" data-index="{{index}}" bindtap='toFourDetail'>
+      <image src='{{item.img}}'></image>
+    </view>
+  </view>
+
+  <!--主人，又到吃饭时间啦  -->
+  <view class="eat-word">
+    <text>-- 主人，又到吃饭时间啦 -- </text>
+  </view>
+  <view class="eat-good" wx:for="{{goodList}}" wx:for-index="index" wx:key="index" data-index="{{index}}" catchtap='toEatLunch'>
+    <view>
+      <image src='{{item.img}}' class="eat-good-img"></image>
+    </view>
+    <view class="eat-goods">
+      <view class="eat-good-one">
+        <text class="eat-good-title">{{item.title}}</text>
+        <text class="eat-good-place">{{item.place}}</text>
+      </view>
+      <view class="eat-good-one">
+        <text class="eat-good-pricego">【起送价￥{{item.price_go}}元】</text>
+        <image src='{{item.comment}}' class="eat-good-sale"></image>
+      </view>
+      <view class="eat-good-one">
+        <view>
+          <text class="eat-good-price">￥{{item.price}} </text>
+          <text class="eat-good-pricego">食堂价 :￥{{item.pricedel}}</text>
+        </view>
+        <text class="eat-good-pricego">已售 {{item.hassel}}</text>
+      </view>
+      <view class="eat-good-one" wx:if="{{item.tip}}">
+        <view class="new-good-sale">{{item.tip}}</view>
+      </view>
+    </view>
+  </view>
+
+    <!--回到顶部  -->
+  <view class="to_top" catchtap='totop' wx:if="{{isTotop}}">
+    <image src='../../images/to_top.png' class="tops"></image>
+  </view>
+  
+</view>

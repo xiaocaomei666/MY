@@ -1,0 +1,381 @@
+/* pages/shopping-trolley/shopping-trolley.wxss */
+
+/* 水卡列表 */
+
+.water-card {
+  margin: 13rpx 13rpx 0;
+  background: #fff;
+  border-radius: 10rpx;
+  padding-left: 18rpx;
+}
+
+.water-card-all {
+  text-align: left;
+  height: 66rpx;
+  line-height: 66rpx;
+  position: relative;
+  padding-left: 70rpx;
+}
+
+.water-card-all icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 40rpx;
+}
+
+.water-card-all text {
+  color: #69C3AA;
+  font-size: 28rpx;
+}
+
+.water-list {
+  position: relative;
+}
+
+.water-list icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.water-flex {
+  height: 95rpx;
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #f0f0f0;
+  padding: 18rpx 0 22rpx;
+  margin-left: 70rpx;
+}
+
+.water-list-image {
+  flex: 1;
+  position: relative;
+}
+
+.water-list image {
+  width: 95rpx;
+  height: 95rpx;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+
+.water-list-middle {
+  flex: 6;
+  font-size: 27rpx;
+  text-align: left;
+  color: #221815;
+  padding-left: 20rpx;
+}
+
+.water-list-middle text {
+  display: block;
+  width: 450rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.water-list-middle text{
+  display: block;
+  width: 450rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.water-list-middle text:nth-child(1){
+  margin-left: 15rpx;
+}
+
+.cl74 {
+  color: #747784;
+}
+
+.water-list-right {
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  text-align: right;
+}
+
+.pl14 {
+  padding-left: 14rpx;
+}
+
+.pl12 {
+  padding-left: 12rpx;
+}
+
+.water-list-right text {
+  display: inline-block;
+  width: 50rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  text-align: center;
+  color: #747784;
+  float: right;
+}
+
+.water-list-right input {
+  display: inline-block;
+  width: 53rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border: 1rpx solid #e8e8e8;
+  text-align: center;
+  min-height: 0;
+  color: #747784;
+  float: right;
+  font-size: 28rpx;
+}
+
+.water-jian {
+  border-top: 1rpx solid #e8e8e8;
+  border-bottom: 1rpx solid #e8e8e8;
+  border-left: 1rpx solid #e8e8e8;
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+}
+
+.water-jia {
+  border-top: 1rpx solid #e8e8e8;
+  border-bottom: 1rpx solid #e8e8e8;
+  border-right: 1rpx solid #e8e8e8;
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+/* 结算 */
+
+.tobuy {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  height: 114rpx;
+  width: 100%;
+  display: flex;
+  z-index: 999;
+}
+
+.tobuy-money {
+  color: #ff3700;
+}
+
+.gray {
+  background: #b5b5b6;
+}
+
+.green {
+  background: #69C3AA;
+}
+
+.tobuy-btn {
+  color: #fff;
+}
+
+.tobuy-all {
+  line-height: 114rpx;
+  color: #221815;
+  position: relative;
+  margin-left: 27rpx;
+  flex: 1;
+  text-align: right;
+  font-size: 28rpx;
+}
+
+.tobuy-all icon {
+  height: 46rpx;
+  line-height: 46rpx;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.tobuy-sum {
+  flex: 3;
+  text-align: right;
+  padding: 18rpx 26rpx 0 0;
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+
+.tobuy-sum .remove {
+  text-decoration: line-through;
+}
+
+.tobuy-btn {
+  flex: 2;
+  line-height: 114rpx;
+  position: relative;
+}
+
+.ft13 {
+  font-size: 26rpx;
+}
+
+/*删除按钮  */
+
+.address-btn {
+  width: 80px;
+  background: rgb(255, 68, 68);
+  line-height: 131rpx;
+  text-align: center;
+  display: inline-block;
+  transition: left 0.2s ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0rpx;
+  color: #fff;
+  font-size: 36rpx;
+  border-right: 4rpx solid #fff;
+  border-top: 4rpx solid #fff;
+}
+
+.del {
+  background: rgb(255, 68, 68);
+  color: #fff;
+  font-size: 36rpx;
+  text-align: center;
+  height: 100%;
+}
+
+.address-flex {
+  flex-direction: row;
+  justify-content: space-between;
+  background: #fff;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* 购物车为空 */
+
+.shopping {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.shopping image {
+  width: 105rpx;
+  height: 105rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.shopping text {
+  display: block;
+  color: #888;
+  line-height: 120rpx;
+  font-size: 28rpx;
+}
+
+.shopping navigator {
+  display: block;
+  width: 280rpx;
+  height: 71rpx;
+  line-height: 71rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+  background: #69c3aa;
+  font-size: 30rpx;
+}
+
+/* 未登录状态 */
+
+.login {
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  text-align: left;
+  padding-left: 120rpx;
+  font-size: 28rpx;
+  background: #fff;
+  position: relative;
+}
+
+.login text {
+  display: inline-block;
+  color: #888;
+}
+
+.login button {
+  position: absolute;
+  top: 50%;
+  left: 28rpx;
+  transform: translate(0, -80%);
+  display: inline-block;
+  margin-top: 10rpx;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  box-sizing: border-box;
+  font-size: 20rpx;
+  text-align: center;
+  text-decoration: none;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 7px;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  color: #fff;
+  background-color: #69C3AA;
+}
+
+.presented {
+  height: 45rpx;
+  line-height: 45rpx;
+  position: relative;
+  font-size: 24rpx;
+  color: #737984;
+  text-align: left;
+  padding-left: 20rpx;
+}
+
+.presented icon {
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  top: 50%;
+  left: 13rpx;
+  transform: translate(0, -50%);
+}
+
+.presented text {
+  padding-left: 30rpx;
+}
+
+.pb114 {
+  padding-bottom: 130rpx;
+}
+
+.tobuy-btn-login {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0;
+}
+
+.tobuy-btn-login .user-login-button {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 114rpx;
+  transform: translate(0, 0);
+  font-size: 35rpx;
+  border-radius: 0;
+}

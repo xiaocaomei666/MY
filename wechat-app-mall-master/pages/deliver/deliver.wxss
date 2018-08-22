@@ -1,0 +1,385 @@
+/* pages/deliver/deliver.wxss */
+@import '../template/template.wxss';
+
+/*配送单状态  */
+
+.status {
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  background: #fff;
+  font-size: 27rpx;
+  margin-bottom: 20rpx;
+}
+
+.status-text {
+  text-align: left;
+  line-height: 50rpx;
+   color: rgb(157, 160, 167);
+}
+.text-color4{
+  color: rgb(157, 160, 167);
+}
+.text-color{
+  color:rgb(34, 22, 22);
+}
+.text-color2{
+ color: rgb(80, 181, 79);
+}
+.text-color3{
+   color: rgb(255, 60, 56);
+}
+.copybox{
+  position: relative;
+}
+
+/*配送单状态按钮  */
+
+.btn {
+  background: rgb(80, 181, 79);
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.content {
+  background: #fff;
+  font-size: 27rpx;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  text-align: left;
+  margin-bottom: 20rpx;
+}
+.question{
+   background: rgb(80, 181, 79); 
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+/*联系客服  */
+.agent{
+background: transparent;
+width: 100%;
+height: 70rpx;
+position: absolute;
+left: 0;
+top: 0;
+color: #fff;
+line-height: 70rpx;
+  font-size: 30rpx;
+}
+
+/*地址  */
+
+.addr {
+  line-height: 50rpx;
+  border-bottom: 1rpx solid rgb(228, 228, 230);
+}
+
+.addrname {
+  padding-right: 20rpx;
+}
+
+.address {
+  padding-bottom: 20rpx;
+}
+.home{
+  width: 100%;
+  height: 71rpx;
+  line-height: 71rpx;
+  color: #757884;
+  border: 1rpx solid #9da1a7;
+  border-radius: 10rpx;
+  text-align: center;
+  margin-top: 19rpx;
+  font-size: 28rpx;
+}
+
+.tag {
+  color: #fff;
+  background: rgb(80, 181, 79);
+  padding: 0rpx 15rpx 0rpx 15rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  font-size: 27rpx;
+}
+
+.addrtext {
+  color: rgb(157, 160, 167);
+}
+
+/*客户留言  */
+
+.message {
+  line-height: 50rpx;
+  border-bottom: 1rpx solid rgb(228, 228, 230);
+  padding-bottom: 20rpx;
+}
+.message-active {
+ display: none;
+}
+
+.message-title {
+  display: block;
+  padding-top: 20rpx;
+  color: rgb(157, 160, 167);
+}
+
+/*商品列表  */
+
+.product {
+  font-size: 27rpx;
+}
+.product2 {
+  font-size: 27rpx;
+  padding: 15rpx 0;
+}
+
+.product-list {
+  display: flex;
+  height: 110rpx;
+  padding-top: 20rpx;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.product-img {
+  width: 120rpx;
+  height: 96rpx;
+  margin-right: 30rpx;
+}
+
+.product-content {
+  width: 100%;
+  height: 100rpx;
+}
+
+.product-price {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 19rpx;
+}
+.product-text1{
+  color: rgb(157, 160, 167);
+  width: 100%;
+}
+/*赠品  */
+.gift{
+  background: #fff;
+  margin-bottom: 20rpx;
+   padding: 20rpx 30rpx 20rpx 30rpx;
+   text-align: left;
+   font-size: 27rpx;
+   color: rgb(157, 160, 167);
+}
+
+/*配送员  */
+
+.people {
+  background: #fff;
+  font-size: 27rpx;
+  text-align: left;
+  padding: 20rpx 30rpx 20rpx 30rpx;
+ 
+}
+
+.people-meg {
+  display: flex;
+  height: 100rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  align-items: center;
+   border-bottom: 1rpx solid rgb(228, 228, 230);
+}
+
+.people-title {
+  color: rgb(157, 160, 167); 
+  border-bottom: 1rpx solid rgb(228, 228, 230);
+  padding-bottom: 20rpx;
+}
+
+.people-img {
+  width: 120rpx;
+  height: 96rpx;
+  margin-right: 30rpx;
+}
+.people-content{
+  width: 100%;
+  /* display: flex; */
+  /* align-items: center; */
+  height: 100rpx;
+  margin-top: -5rpx;
+}
+
+.people-tel {
+  display: flex;
+  justify-content:flex-end;
+}
+.people-text{
+  background: rgb(80, 181, 79);
+  width: 134rpx;
+  border-radius: 15rpx;
+  color: #fff;
+  text-align: center;
+  /* line-height: 40rpx; */
+}
+/*物流信息  */
+.people-log{
+  display: flex;
+  justify-content: space-between;
+  line-height: 70rpx;
+   border-bottom: 1rpx solid rgb(228, 228, 230);
+   color: rgb(157, 160, 167); 
+}
+.people-news{
+   color: rgb(157, 160, 167); 
+  line-height: 70rpx; 
+}
+/*申诉详情  */
+.template-content3{
+  text-align: left;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  height: 60%;
+}
+.template-box{
+  display: flex;
+  align-items: baseline;
+  line-height: 50rpx;
+}
+
+.template-text3{
+  text-align: left;
+   width:25%; 
+  font-size: 27rpx;
+}
+.textcontent{
+   width: 75%;  
+   font-size: 27rpx;
+}
+.textcontent-textare{
+  width: 75%;  
+   font-size: 27rpx;
+   height: 100%;
+   overflow-y: auto;
+}
+
+/*处理情况  */
+.template-statue{
+  text-align: left;
+  padding-left: 20rpx;
+  font-size: 27rpx;
+  display: flex;
+  align-items: center;
+  padding-top: 10rpx;
+  /* border-top: 1rpx solid #f8f8f8; */
+}
+/*已催单  */
+.reminders{
+  /* background: gray; */
+  background: rgb(157, 160, 167);
+   height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+
+
+.template {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+/*弹框  */
+
+.template-view3 {
+  width: 84%;
+  /* height: 400rpx; */
+  /* background-color: #54b354; */
+    background-color: #fff; 
+  border-radius: 20rpx;
+  position: absolute;
+  left: 50%;
+  top: 170rpx;
+  margin-left: -42%;
+  padding: 50rpx 0;
+  color: #000;
+  box-sizing: border-box;
+}
+
+/*取消  */
+
+.template-cancel {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  left: 50%;
+  bottom: -35%;
+  margin-left: -40rpx;
+  color: #000;
+}
+
+/*标题  */
+
+.template-title {
+  font-size: 33rpx;
+  margin-bottom: 20rpx;
+}
+
+/*内容  */
+
+.template-content {
+  font-size: 30rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+}
+
+/*按钮  */
+
+.template-button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 87rpx;
+  line-height: 87rpx;
+  display: flex;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.template-button button {
+  width: 83%;
+  /* margin-bottom: 22rpx; */
+  border-radius: 0;
+  /* border-radius: 15rpx; */
+  /* border: 1rpx solid rgba(255, 255, 255, 0.5); */
+  color: #54b354;
+  font-size: 32rpx;
+  height: 87rpx;
+  line-height: 87rpx;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 15rpx;
+  background: #fff;
+}
+
+.template-button button:nth-child(1) {
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+  border-right: 1rpx solid rgba(0, 0, 0, 0.2);
+}
+
+.template-button button:nth-child(2) {
+  border-bottom-right-radius: 15rpx;
+}

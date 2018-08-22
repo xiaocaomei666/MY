@@ -1,0 +1,64 @@
+<view class="page">
+  <view class="top"></view>
+  <view class="box">
+    <view class='content'>
+      <view class='user-text'>
+        <view class='nature1'>收货人:</view>
+        <input placeholder="姓名" placeholder-style="color:#b2b2b2" type='text' bindblur="userName" value="{{userN}}" maxlength='10' />
+      </view>
+      <view class='user-text'>
+        <text class='nature2'>手机号码:</text>
+        <input placeholder="手机号码" type='number' maxlength='11' placeholder-style="color:#b2b2b2" bindblur="phoneNumber" value="{{phoneN}}" />
+      </view>
+      <view class='user-text province'>
+        <text class='nature3'>送餐地址:</text>
+        <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" style='width:100%;height:100%'>
+          <view class="{{pick?'pickerstyle':'picker'}}">
+             {{region[0]}}{{region[1]}}{{region[2]}} 
+            {{region}}
+          </view>
+        </picker> -->
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class='pickers'>
+            <text wx:if="{{!pickerShow}}" class="{{pick?'pickerstyle':'pickers'}}">{{proviceName}}{{cityName}}{{districtName}}</text>
+            <text wx:else>{{regionArea}}{{cityArea}}{{districtArea}} </text>
+          </view>
+        </picker>
+      </view>
+      <view class='user-text4 address'>
+        <text class='nature4'>详细地址:</text>
+        <textarea placeholder="请输入详细地址" placeholder-style="color:#b2b2b2" bindblur="address" value="{{addressN}}" class="addr" maxlength="50" auto-height="true" hidden='{{textareashow}}'></textarea>
+      </view>
+      <view class='user-text2'>
+        <text class='nature5'>地址标签:</text>
+        <view class="user-label" wx:for="{{tally}}" wx:key="index" bindtap="active" data-index="{{index}}">
+          <span class="{{checks==index || item == tag?'sp-activate':'sp'}}" data-index="{{index}}">{{item}}</span>
+        </view>
+      </view>
+    </view>
+    <view class="btn">
+      <button class="purchase sure" bindtap='notarize'>保存</button>
+      <button class="purchase del" bindtap='del' wx:if="{{delshow}}">删除地址</button>
+    </view>
+  </view>
+</view>
+
+<view class="template" wx:if="{{cancelbeans2.templateShow2}}">
+  <view class="template-view">
+    <view class="template-title">{{cancelbeans2.title}}</view>
+    <view class="template-content">
+      <input bindinput="addtag" maxlength='4'></input>
+    </view>
+    <view class="template-button">
+      <button bindtap='templateConfirm2'>是</button>
+      <button bindtap='templateCancel2'>否</button>
+    </view>
+  </view>
+  <view class="template-cancel" bindtap='templateCancel2'>
+    <icon type="cancel" size="34" color='#fff' />
+  </view>
+</view>
+
+<!--确认取消弹窗  -->
+<import src="../template/template.wxml" />
+<template is="msgItem" data="{{...cancelbeans}}" />

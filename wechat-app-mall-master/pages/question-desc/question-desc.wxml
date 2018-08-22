@@ -1,0 +1,45 @@
+<!--pages/question-desc/question-desc.wxml-->
+<view class="question-desc">
+  <view class="desc-title">{{getQuesitonIndex}}. {{getQuestionTitle}}</view>
+  <view class="desc-content" wx:if="{{titleIndex==0 && getQuesitonIndex==1}}">
+    支持配送到所有学生宿舍楼下，暂不支持送到相应的宿舍门口哦。
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==0 && getQuesitonIndex==2}}">
+    为了不加重清洁阿姨的负担，所以一教和二教仅支持配送到相应的教师办公室，但是不支持配送到课室哦。
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==0 && getQuesitonIndex==3}}">
+    为了不加重清洁阿姨的负担，所以工业中心仅支持配送到相应的教师办公室，但是不支持配送到课室哦。
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==0 && getQuesitonIndex==4}}">
+    为了不加重清洁阿姨的负担，所以实验楼仅支持配送到相应的教师办公室，但是不支持配送到课室哦。
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==0 && getQuesitonIndex==5}}">
+    支持配送到行政楼的任何办公室。
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==0 && getQuesitonIndex==5}}">
+    支持配送到校医室一楼。
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==1 && getQuesitonIndex==1}}">
+    <text>早餐：前一天晚上的20点前</text>
+    <text>中餐：当天11点前</text>
+    <text>晚餐：当天17点前</text>
+    <text>宵夜：当天20点前</text>
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==1 && getQuesitonIndex==2}}">
+    配送时间在订餐后的40分钟内配送。如果有特别要求，可在留言中说明。
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==2 && getQuesitonIndex==1}}">
+    <text>北区饭堂：早餐、中餐、晚餐、宵夜</text>
+    <text>春晖园饭堂一楼：早餐、中餐、晚餐、宵夜</text>
+    <text>春晖园饭堂三楼：中餐、晚餐</text>
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==2 && getQuesitonIndex==2}}">
+    <text>北区饭堂：节假日早中晚餐照常营业，不提供宵夜</text>
+    <text>春晖园饭堂一楼：节假日不营业</text>
+    <text>春晖园饭堂三楼：节假日早中晚餐照常营业，不提供宵夜</text>
+  </view>
+  <view class="desc-content" wx:if="{{titleIndex==3 && getQuesitonIndex==1}}">
+    <text>新用户首单立减10元，若退单则不享受此优惠</text>  
+    <image src='http://p701vezuq.bkt.clouddn.com/activity_10.jpg' class="activity_img"></image>
+  </view>
+</view>

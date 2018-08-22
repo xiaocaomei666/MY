@@ -1,0 +1,22 @@
+<!--start.wxml-->
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/images/start/loading.gif"></image>
+  </view>
+  <block wx:else>
+    <image class="title" src="/images/start/start_01.png"></image>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="{{userInfo.avatarUrl}}"></image>
+        <image class="wave" src="/images/start/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/start/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+         <image class="smalltitle" src="/images/start/start_02.png"></image>
+        <view class="confirm-btn" bindtap='goToIndex'>
+          <text>进入订餐系统</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

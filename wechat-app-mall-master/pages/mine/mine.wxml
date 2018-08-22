@@ -1,0 +1,36 @@
+<!--pages/mine/mine.wxml-->
+<view class="mine-view">
+  <view class="mine">
+    <view class="mine-page">
+      <view class="mine-msg" catchtap='updateName'>
+        <text>昵称</text>
+        <view class="mine-icon">
+          <text>{{name}}</text>
+          <text class="icon-right"></text>
+        </view>
+
+      </view>
+      <view class="mine-msg" catchtap='updatePhone'>
+        <text>手机号码</text>
+        <view class="mine-icon">
+          <text>{{phone}}</text>
+          <text class="icon-right"></text>
+        </view>
+      </view>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mine-phone" wx:if="{{!phone}}"></button>
+      <view class="mine-msg" catchtap='toAddress'>
+        <text>我的地址</text>
+        <text class="icon-right"></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--是否更新昵称  -->
+<import src="../template/template.wxml" />
+<template is="msgItem" data="{{...cancelbeans}}" />
+
+<!--是否更新手机号  -->
+<import src="../template/template.wxml" />
+<template is="msgItem3" data="{{...cancelbeans2}}" />

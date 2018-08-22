@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/order-list/order-list",
+    "pages/pay/pay",
+    "pages/advise/advise",
+    "pages/addresschoose/addresschoose",
+    "pages/shipping-address/shipping-address",
+    "pages/mine/mine",
+    "pages/deliver/deliver",
+    "pages/clearing/clearing",
+    "pages/shopping-trolley/shopping-trolley",
+    "pages/merchandise/merchandise",
+    "pages/distribution/distribution",
+    "pages/questions/questions",
+    "pages/question-desc/question-desc",
+    "pages/orderpull/orderpull"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "广师订餐",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#06C1AE",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "box-shadow": "0 0 6px 0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabbar/icon_home.png",
+        "selectedIconPath": "images/tabbar/icon_home_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/shopping-trolley/shopping-trolley",
+        "iconPath": "images/tabbar/icon_desc.png",
+        "selectedIconPath": "images/tabbar/icon_desc_active.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/tabbar/icon_mine.png",
+        "selectedIconPath": "images/tabbar/icon_mine_active.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

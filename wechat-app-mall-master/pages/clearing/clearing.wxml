@@ -1,0 +1,203 @@
+<!--pages/clearing/clearing.wxml-->
+<view>
+  <!-- 北区饭堂 -->
+  <view class='water-card' wx:if="{{northRes.length != 0}}">
+    <view class='water-card-all'>
+      <text>北区饭堂</text>
+    </view>
+    <view class='water-list' wx:for="{{northRes}}" data-index="{{index}}" wx:key="index" wx:for-index="index">
+      <view class='address-flex'>
+        <view class='water-flex'>
+          <view class='water-list-image'>
+            <image src='{{item.imageSmall}}'></image>
+          </view>
+          <view class=' water-list-middle '>
+            <text>{{item.skuName}}</text>
+            <text class='cl74' wx:if="{{item.capacity}}">数量：{{item.capacity}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+          <view class='water-list-right '>
+            <text>×{{item.buyQuantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 春一饭堂 -->
+  <view class='water-card' wx:if="{{springOne.length != 0}}">
+    <view class='water-card-all'>
+      <text>春一饭堂</text>
+    </view>
+    <view class='water-list ' wx:for="{{springOne}}" data-index="{{index}}" wx:key="index" wx:for-index="index">
+      <view class='address-flex '>
+        <view class='water-flex '>
+          <view class='water-list-image '>
+            <image src='{{item.imageSmall}}'></image>
+          </view>
+          <view class='water-list-middle'>
+            <text>{{item.skuName}}</text>
+            <text class='cl74' wx:if="{{item.capacity}}">数量：{{item.capacity}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+          <view class='water-list-right'>
+            <text>×{{item.buyQuantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 春三饭堂 -->
+  <view class='water-card' wx:if="{{springThree.length != 0}}">
+    <view class='water-card-all'>
+      <text>春三饭堂</text>
+    </view>
+    <view class='water-list' wx:for="{{springThree}}" data-index="{{index}}" wx:key="index" wx:for-index="index">
+      <view class='address-flex'>
+        <view class='water-flex'>
+          <view class='water-list-image'>
+            <image src='{{item.imageSmall}}'></image>
+          </view>
+          <view class=' water-list-middle '>
+            <text>{{item.skuName}}</text>
+            <text class='cl74' wx:if="{{item.capacity}}">数量：{{item.capacity}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+          <view class='water-list-right '>
+            <text>×{{item.buyQuantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 7栋楼下 -->
+  <view class='water-card' wx:if="{{floorSeven.length != 0}}">
+    <view class='water-card-all '>
+      <text>7栋楼下</text>
+    </view>
+    <view class='water-list ' wx:for="{{floorSeven}}" data-index="{{index}}" wx:key="index" wx:for-index="index">
+      <view class='address-flex '>
+        <view class='water-flex '>
+          <view class='water-list-image '>
+            <image src='{{item.imageSmall}}'></image>
+          </view>
+          <view class='water-list-middle'>
+            <text>{{item.skuName}}</text>
+            <text class='cl74' wx:if="{{item.capacity}}">数量：{{item.capacity}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+          <view class='water-list-right'>
+            <text>×{{item.buyQuantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 学院后门堂茶店 -->
+  <view class='water-card' wx:if="{{behinedSchool.length != 0}}">
+    <view class='water-card-all'>
+      <text>学院后门堂茶店</text>
+    </view>
+    <view class='water-list' wx:for="{{behinedSchool}}" data-index="{{index}}" wx:key="index" wx:for-index="index">
+      <view class='address-flex'>
+        <view class='water-flex'>
+          <view class='water-list-image'>
+            <image src='{{item.imageSmall}}'></image>
+          </view>
+          <view class=' water-list-middle '>
+            <text>{{item.skuName}}</text>
+            <text class='cl74' wx:if="{{item.capacity}}">数量：{{item.capacity}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+          <view class='water-list-right '>
+            <text>×{{item.buyQuantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--北区饭堂门口Q堡堡  -->
+   <view class='water-card' wx:if="{{qBaby.length != 0}}">
+    <view class='water-card-all'>
+      <text>北区饭堂门口Q堡堡</text>
+    </view>
+    <view class='water-list' wx:for="{{qBaby}}" data-index="{{index}}" wx:key="index" wx:for-index="index">
+      <view class='address-flex'>
+        <view class='water-flex'>
+          <view class='water-list-image'>
+            <image src='{{item.imageSmall}}'></image>
+          </view>
+          <view class=' water-list-middle '>
+            <text>{{item.skuName}}</text>
+            <text class='cl74' wx:if="{{item.capacity}}">数量：{{item.capacity}}</text>
+            <text>￥{{item.price}}</text>
+          </view>
+          <view class='water-list-right '>
+            <text>×{{item.buyQuantity}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='distribution'>
+    <!-- <view class='scope' bindtap='scope'>
+      <text>请选择配送地址</text>
+      <text>查看是否在配送范围</text>
+    </view> -->
+    <!--地址  -->
+    <view class="chosed-product-address" catchtap='toAddress'>
+      <view class="chosed-address" wx:if="{{address.receiverName}}">
+        <view>
+          <text>{{address.receiverName}} </text>
+          <text> {{address.receiverMobile}}</text>
+        </view>
+        <view>
+          <text class="chosed-addr" wx:if="{{address.tag}}">{{address.tag}}</text>
+          <text>{{address.proviceName}}{{address.districtName}}{{address.cityName}}{{address.districtName}}{{address.addressDetail}}</text>
+        </view>
+      </view>
+      <view class="picker-time" wx:if="{{!address.receiverName}}">请选择地址</view>
+      <view class="chosed-icon-right"></view>
+    </view>
+
+    <!-- <view class='site' bindtap='site'>
+      <text class="beyond-hidden">{{address[0]}}{{address[1]}}{{address[2]}}{{address[3]}}</text>
+    </view> -->
+    <view class='amount'>
+      <text>商品总数量</text>
+      <text class='fr'>{{amount}}(份)</text>
+    </view>
+    <view class='money'>
+      <text>商品金额</text>
+      <text class='fr clfe'>￥{{originalCost}}</text>
+    </view>
+    <view class='money'>
+      <text>运费</text>
+      <text class='fr clfe'>￥{{freight}}</text>
+    </view>
+    <view class='practical'>
+      <text>实付金额：</text>
+      <text class='clfe'>￥{{watercard}}</text>
+    </view>
+  </view>
+
+
+  <view class="chosed-talkarea">
+    <textarea placeholder="客户留言…" maxlength="150" placeholder-class="aaa" hidden='{{productToastShow || cancelbeans.templateShow || textShow}}' bindinput='textareaText' value='{{textareaTexter}}'></textarea>
+  </view>
+
+  <view class='pay'>
+    <view class='warning'>
+      <icon type='warn' size='12'></icon>
+      <text>确认订单成功后，我们将按时为您配送</text>
+    </view>
+    <view class='pay-btn' bindtap='toPayIt'>确认订单</view>
+  </view>
+  <import src="../template/template.wxml" />
+  <template is="msgItem" data="{{...cancelbeans}}" />
+</view>

@@ -1,0 +1,81 @@
+<!--pages/template/template.wxml-->
+<!--弹框模板  -->
+<template name="msgItem">
+  <view class="template" wx:if="{{templateShow}}">
+    <view class="template-view">
+      <view class="template-title">{{title}}</view>
+      <view class="template-content">
+        <text>{{content}}</text>
+      </view>
+      <view class="template-button">
+        <button bindtap='templateCancel'>取消</button>
+        <button bindtap='templateConfirm'>确定</button>
+      </view>
+    </view>
+    <view class="template-cancel" bindtap='templateCancel'>
+      <!-- <icon type="cancel" size="34" color='rgba(255,255,255,0.5)' /> -->
+    </view>
+  </view>
+</template>
+
+<template name="msgItem2">
+  <view class="template2" wx:if="{{refund}}">
+    <view class="{{list.state==2? 'top5':''}} template2-view">
+      <view class="template2-content">
+        <view class='content-list' wx:for="{{items}}" wx:key="index" bindtap='radio' data-index="{{index}}">
+          <icon wx:if="{{item.selected}}" type='success' size='16' color='rgb(80, 181, 79)' data-index="{{index}}"></icon>
+          <icon wx:else type='circle' color='#888' size='16' data-index="{{index}}"></icon>
+          <text> {{item.value}}</text>
+        </view>
+        <textarea placeholder="请输入详情…" placeholder-style="color:#a4a2a3;" bindinput="inputvalue" maxlength='100'></textarea>
+      </view>
+      <view class="template2-button">
+
+        <button  bindtap='refundNo' >取消</button>
+        <button  bindtap='refundConfirm'>确认</button>
+      </view>
+    </view>
+    <view class="{{list.state==2? 'bt5':''}} template2-cancel" bindtap='refundNo'>
+      <!-- <icon type="cancel" size="34" color='#fff' /> -->
+    </view>
+  </view>
+</template>
+
+<template name="msgItem3">
+  <view class="template" wx:if="{{templateShow}}">
+    <view class="template-view">
+      <view class="template-title">{{title}}</view>
+      <view class="template-content">
+        <text> {{content}}</text>
+      </view>
+      <view class="template-button">
+
+        <button bindtap='templateCancel2'>取消</button>
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap='templateConfirm2'>确定</button>
+      </view>
+    </view>
+    <view class="template-cancel" bindtap='templateCancel2'>
+      <!-- <icon type="cancel" size="34" color='rgba(255,255,255,0.5)' /> -->
+    </view>
+  </view>
+</template>
+
+<template name="msgItem4">
+  <form bindsubmit="formSubmit" bindreset="formReset" report-submit>
+    <view class="template" wx:if="{{templateShow}}">
+      <view class="template-view">
+        <view class="template-title">{{title}}</view>
+        <view class="template-content">
+          <text> {{content}}</text>
+        </view>
+        <view class="template-button">
+          <button bindtap='templateCancel'>取消</button>
+          <button bindtap='templateConfirm' formType="submit">确定</button>
+        </view>
+      </view>
+      <view class="template-cancel" bindtap='templateCancel'>
+        <!-- <icon type="cancel" size="30" color='rgba(255,255,255,0.5)' /> -->
+      </view>
+    </view>
+  </form>
+</template>

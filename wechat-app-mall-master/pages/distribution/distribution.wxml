@@ -1,0 +1,53 @@
+<!--pages/distribution/distribution.wxml-->
+<view class='page'>
+  <view class=''>
+    <view class='site pl30 pr30'>
+      <view class='site-left'>
+        <text class='cl75 ft30'>地址:</text>
+        <text class='ft30'>{{address}}</text>
+      </view>
+      <view class='site-right' bindtap='site'>
+        <image src='../../images/site.png'></image>
+        <text class='ft30'>获取地址</text>
+      </view>
+    </view>
+    <view class='province pl30 pr30'>
+      <text class='w122 cl75 ft30'>省</text>
+      <view class="section">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker ft30">
+            {{region[0]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='province pl30 pr30'>
+      <text class='w122 cl75 ft30 fl'>市</text>
+      <view class="section fl">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker ft30">
+            {{region[1]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='province pl30 pr30'>
+      <text class='w122 cl75 ft30'>区/县</text>
+      <view class="section">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker ft30">
+            {{region[2]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='province pl30 pr30 btf0'>
+      <text class='w122 cl75 ft30'>街道</text>
+      <input class='ft30' type='text' value='{{street}}'></input>
+    </view>
+    <view class='btn'>
+      <navigator class='btn-cancel' hover-class="none" open-type='navigateBack' delta='1'>取消</navigator>
+      <navigator class='btn-confirm' hover-class="none" bindtap='confirm'>确定</navigator>
+    </view>
+  </view>
+</view>

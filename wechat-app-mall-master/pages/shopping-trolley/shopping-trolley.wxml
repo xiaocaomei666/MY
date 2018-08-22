@@ -1,0 +1,80 @@
+<!--pages/shopping-trolley/shopping-trolley.wxml-->
+<view>
+  <!-- 未登录状态 -->
+  <view class='login' wx:if="{{!hasUserInfo && canIUse}}">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="user-login-button">登录</button>
+    <text>立即同步购物车</text>
+  </view>
+</view>
+
+<view class='pb114'>
+  <view class='water-card'>
+    <!-- 全选 -->
+    <view class='water-card-all' wx:if='{{showBucketDiv}}'>
+      <icon wx:if="{{!allBucketSelected}}" type="circle" bindtap='bucketSelectAll' size='20'></icon>
+      <icon wx:else type="success" bindtap='bucketSelectAll' size='20' color="#69C3AA"></icon>
+      <text>全选</text>
+    </view>
+    <view wx:else></view>
+    <view class='water-list' wx:for="{{bucket}}" bindtouchstart='bucketTouchS' bindtouchmove="bucketTouchM" bindtouchend="bucketTouchE" wx:if="{{list == true}}" data-index="{{index}}" wx:key="index" wx:for-index="index">
+      <view class='address-flex' style='{{item.txtStyle}}'>
+        <icon wx:if="{{!item.selected}}" type="circle" data-index="{{index}}" bindtap='bucketList' size='20'></icon>
+        <icon wx:else="{{selected}}" type="success" data-index="{{index}}" bindtap='bucketList' size='20' color="#69C3AA"></icon>
+        <view class='water-flex'>
+          <view class='water-list-image'>
+            <image src='{{item.imageSmall}}'></image>
+          </view>
+          <view class='water-list-middle'>
+            <text> {{item.skuName}}({{item.place}})</text>
+            <text class='cl74 pl14' wx:if="{{item.capacity}}">规格：{{item.capacity}}</text>
+            <text class='cl74 pl14' wx:else>食堂：{{item.place}}</text>
+            <text class='pl12'>￥{{item.price}}</text>
+          </view>
+          <view class='water-list-right'>
+            <text class='water-jia' bindtap='addCountBucket' data-index="{{index}}">+</text>
+            <input value='{{item.buyQuantity}}' type='number' bindblur="amountBucket" data-index="{{index}}" maxlength='4'></input>
+            <text class='water-jian' bindtap='minusCountBucket' data-index="{{index}}">-</text>
+          </view>
+        </view>
+      </view>
+      <!--滑动按钮  -->
+      <view class='address-btn' catchtap="bucketDel" style="{{item.text}};width:{{item.delBtnWidth}}px" data-index="{{index}}" wx:if="{{list == true}}">
+        <text class="litext" wx:if="{{item.litext == true}}">删除</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 购物车为空 -->
+<view class='shopping' wx:if="{{shopping}}">
+  <image src='../../images/shopping-cart.png'></image>
+  <text>购物车还空空如也哦~</text>
+  <navigator url='/pages/index/index' hover-class="none" open-type="switchTab">去首页逛逛</navigator>
+</view>
+
+
+
+<!-- 结算 -->
+<view class='tobuy' wx:if="{{!shopping}}">
+  <view class='tobuy-all'>
+    <icon wx:if="{{!all}}" type="circle" data-index="{{index}}" bindtap='aggregate' size='20'></icon>
+    <icon wx:else type="success" data-index="{{index}}" bindtap='aggregate' size='20' color="#69C3AA"></icon>
+    <text>全选</text>
+  </view>
+  <view class='tobuy-sum'>
+    <view>总计:
+      <text class='tobuy-money'>￥{{totalPrice}}</text>
+    </view>
+     <!-- <text class='ft13 cl74 remove' wx:if="{{discount !=0}}">￥{{discount}}</text>  -->
+     <text class='ft13 cl74' wx:if="{{discount !=0}}">(最优价)</text> 
+  </view>
+   <view class="tobuy-btn gray" wx:if='{{btn}}'>
+    <text>去结算</text>
+  </view> 
+  <view class="tobuy-btn green" wx:else bindtap='settleAccounts'>
+    <text>去结算</text>
+    <view class='tobuy-btn-login login' wx:if="{{!hasUserInfo}}">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="user-login-button">去结算</button>
+    </view>
+  </view>
+</view>

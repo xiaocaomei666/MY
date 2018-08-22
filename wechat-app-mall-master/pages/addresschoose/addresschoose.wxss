@@ -1,0 +1,178 @@
+.page {
+  padding-bottom: 150rpx;
+}
+
+.addresschoose {
+  text-align: left;
+  font-size: 27rpx;
+  position: relative;
+}
+
+.address-flex {
+  background: #fff;
+  margin-top: 10rpx;
+  padding: 30rpx;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/*名字 手机号  */
+
+.address-name {
+  margin-right: 20rpx;
+}
+
+/*地址  */
+
+.address-content {
+  padding-top: 20rpx;
+}
+
+/*地址 标签  */
+
+.tag {
+  background: #69c3aa;
+  color: #fff;
+  padding: 0 10rpx 0 10rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+
+.addr {
+  color: #9799a3;
+}
+
+.address-addr {
+  display: inline-block;
+  width: 100%;
+}
+
+/*超过一行显示。。。  */
+
+.address-address {
+  text-align: start;
+  font-size: 27rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+/*默认地址 编辑  */
+
+.redact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  border-top: 1rpx solid rgb(228, 228, 230);
+  padding-top: 20rpx;
+}
+
+.redact-left {
+  display: flex;
+  align-items: center;
+}
+
+.redact-right {
+  display: flex;
+  align-items: center;
+}
+
+.crlice {
+  width: 32rpx;
+  height: 32rpx;
+  border: 1rpx solid rgb(228, 228, 230);
+  border-radius: 50%;
+  margin-right: 15rpx;
+  box-sizing: border-box;
+}
+
+.redact-right image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+}
+
+/*新增地址  */
+
+.add-address {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 30rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: #f8f8f8;
+}
+
+.add-address button {
+  display: inline-block;
+  height: 80rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  flex: 1;
+  line-height: 80rpx;
+  width: 690rpx;
+  font-size: 30rpx;
+  background: #69c3aa;
+}
+
+/*删除按钮  */
+
+.address-btn {
+  width: 80px;
+  /* background: rgb(255, 68, 68); */
+  background: #69c3aa;
+  line-height: 240rpx;
+  text-align: center;
+  display: inline-block;
+  transition: left 0.2s ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0rpx;
+  z-index: 1;
+  color: #fff;
+  font-size: 36rpx;
+  height: 100%;
+}
+
+.content-show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 700rpx;
+  color: #888;
+  font-size: 32rpx;
+}
+
+.content-show image {
+  width: 212rpx;
+  height: 200rpx;
+  display: inline-block;
+  margin-bottom: 15rpx;
+}
+
+.images-lines {
+  width: 800rpx;
+  height: 9rpx;
+  position: absolute;
+  left: -20rpx;
+  bottom: 20rpx;
+  z-index: 100;
+  padding: -20rpx;
+}
+
+.images-line {
+  width: 100%;
+  height: 9rpx;
+}

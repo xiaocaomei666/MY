@@ -1,0 +1,15 @@
+<!--pages/advise/advise.wxml-->
+<view class="advise-page">
+<view class="advise">
+  <!--标题  -->
+  <view class="advise-title">
+    <input placeholder='请输入反馈标题…' placeholder-class='placeholder-class' maxlength='15' bindinput='adviseTitle' value='{{adviseText}}'></input>
+  </view>
+  <!--内容  -->
+  <view class="advise-content">
+    <textarea placeholder='请输入反馈内容…' placeholder-class='placeholder-class' maxlength='250' bindinput='adviseContent' value='{{adviseContent}}'></textarea>
+  </view>
+  <!--提交  -->
+  <view class="advise-post" bindtap='contentPost'>提交</view>
+</view>
+</view>

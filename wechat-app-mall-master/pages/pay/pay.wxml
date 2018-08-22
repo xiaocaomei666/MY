@@ -1,0 +1,42 @@
+<!--pages/pay/pay.wxml-->
+<view class="PayBigBox">
+  <!--底部模块开始  -->
+  <view class="PayBottom">
+    <view class="payBottom-left" bindtap='look'>
+      <text>查看订单</text>
+    </view>
+    <view class="payBottom-right" bindtap='toWater'>
+      <text>继续购买</text>
+    </view>
+  </view>
+  <!--底部模块结束  -->
+
+  <!--主体部分开始  -->
+  <!--头部开始  -->
+  <view class="PayTop">
+    <icon type="success" size="50" color="#69C3AA" />
+    <view class="PayTitle-box">
+      <text class="PayTitle">购买成功</text>
+      <view class="PayTitle-explain">商家已收到您的订单，尽快为您配送</view>
+    </view>
+  </view>
+  <!--头部结束  -->
+
+  <!--中部开始  -->
+  <view class="PayCenter">
+    <view class="PayMessage">
+        <view class="PayMessage-Title">
+        <text>预约送达时间</text>
+        <text>{{time}}</text>
+        </view>
+        <view class="PayMessage-Title">
+        <text>实付金额</text>
+        <text style="color:#ff0101">¥{{originalCost}}</text>
+        </view>
+    </view>
+    <button class="PayBtn" size="default" bindtap="primary">催单 </button>
+  </view>
+  <!--中部结束  -->
+
+  <!--主体部分结束  -->
+</view>

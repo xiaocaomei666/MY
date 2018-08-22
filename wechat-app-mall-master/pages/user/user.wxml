@@ -1,0 +1,143 @@
+<!--pages/user/user.wxml-->
+
+<view class="page-user">
+  <!--登录  -->
+  <view class="{{pullshow ? 'user-height' : 'user'}}">
+    <image src='../../images/user_bg2.png' class="user-bg2"></image>
+
+    <!--点击登录  -->
+    <view class="user-login" wx:if="{{!hasUserInfo && canIUse}}">
+      <image src='../../images/user_login.png' class="user-login-images"></image>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="user-login-button">点击登录</button>
+    </view>
+
+    <!--登录成功  -->
+    <view wx:else class="user-login" catchtap='toUserMsg'>
+      <image class="user-login-img user-login-images" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="user-name-tel">
+        <text class="user-login-button">{{userInfo.nickName}}</text>
+        <text class="" wx:if="{{phone}}">{{phone}}</text>
+      </view>
+
+    </view>
+
+    <!--点击送水  -->
+    <view class="user-water-to" wx:if="{{hasUserInfo}}">
+      <view class="user-water-class">
+        <text class="user-water-nums" catchtap='toRemained'>查看个人信息 </text>
+        <view class="icon-right" catchtap='toRemained'></view>
+      </view>
+    </view>
+
+    <!-- 待付款  待送达  全部 -->
+    <view class="user-waite user-waite-show">
+      <!-- <view class="user-waite-view" wx:for="{{waiteBean}}" wx:for-index="index" wx:key="index" data-index="{{index}}" bindtap='toUserWaite'> 
+        <image src='{{item.img}}' class="user-waite-images"></image>
+        <text class="user-waite-text">{{item.desc}}</text>
+
+        <!-- <view class="user-waite-badge" wx:if="{{!userWaiteDisplay}}">8</view> -->
+      <!-- <view class="{{userWaiteId == index ? 'this-display-yes' : ''}} user-waite-badge">{{item.tip}}</view> -->
+
+      <!-- </view> -->
+
+      <!--待付款  -->
+      <view class="user-waite-view" bindtap='toWaitePay'>
+        <view class="user-waite-three">
+          <image src='../../images/waite_pay.png' class="user-waite-images1"></image>
+        </view>
+        <text class="user-waite-text">待付款</text>
+        <view class="user-waite-badge" wx:if="{{waitePay != 0}}">{{waitePay}}</view>
+      </view>
+
+      <!--待送达  -->
+      <view class="user-waite-view" bindtap='toWaiteGet'>
+        <view class="user-waite-three">
+          <image src='../../images/waite_get.png' class="user-waite-images"></image>
+        </view>
+        <text class="user-waite-text">待送达</text>
+        <view class="user-waite-badge" wx:if="{{waiteGet != 0}}">{{waiteGet}}</view>
+      </view>
+
+      <!--全部  -->
+      <view class="user-waite-view" bindtap='toUserWaite'>
+        <view class="user-waite-three">
+          <image src='../../images/waite_all.png' class="user-waite-images3"></image>
+        </view>
+        <text class="user-waite-text">全部</text>
+      </view>
+
+    </view>
+  </view>
+
+  <!--功能栏  -->
+  <view class="user-chose">
+    <!--我的地址  意见反馈  常见问题  -->
+    <view class="user-chose-each" wx:for="{{userchoseBean}}" wx:for-index="index" wx:key="index" data-index="{{index}}" bindtap='toUserChose'>
+      <view>
+        <image src='{{item.img}}' class="user-chose-img"></image>
+      </view>
+      <view>
+        <text class="user-chose-desc">{{item.desc}}</text>
+      </view>
+    </view>
+    <!--微信客服  -->
+    <view class="user-chose-each" bindtap='toUserChoseWx'>
+      <button class="wx-button" open-type="contact">
+        <view class="wx-images">
+          <image src='../../images/user_wx.png' class="user-chose-img"></image>
+        </view>
+        <view class="wx-text">
+          <text class="user-chose-desc">微信客服</text>
+        </view>
+      </button>
+    </view>
+
+    <!--电话客服  -->
+    <view class="user-chose-each" bindtap='toUserChoseTel'>
+      <view>
+        <image src='../../images/user_tel.png' class="user-chose-img"></image>
+      </view>
+      <view>
+        <text class="user-chose-desc">电话客服</text>
+      </view>
+    </view>
+
+    <view class="user-chose-each">
+      <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号码 </button>    -->
+    </view>
+  </view>
+</view>
+
+<!--微信授权账户信息  -->
+<view class="template" wx:if="{{!hasUserInfo && canIUse && wxMsgShow}}">
+  <view class="template-view">
+    <view class="template-content">
+      <view> 为保证正常显示您的账户信息，请允许微信授权</view>
+      <view class="template-msg">获得您的公开信息(昵称、头像等)</view>
+    </view>
+    <view class="template-button">
+      <button bindtap='wxMsgShowCancel'>拒绝</button>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" bindtap='showToast'>允许</button>
+    </view>
+  </view>
+  <view class="template-cancel" bindtap='wxMsgShowCancel'>
+    <!-- <icon type="cancel" size="30" color='rgba(255,255,255,0.8)' /> -->
+  </view>
+</view>
+
+<!--微信授权手机号码  -->
+<view class="template" wx:if="{{toastShow2}}">
+  <view class="template-view">
+    <view class="template-content">
+      <view> 为保证正常显示您的账户信息，请允许微信授权</view>
+      <view class="template-msg">获得您的手机号码</view>
+    </view>
+    <view class="template-button">
+      <button bindtap='showToast2'>拒绝</button>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap='showToast3'>允许</button>
+    </view>
+  </view>
+  <view class="template-cancel" bindtap='showToast2'>
+    <!-- <icon type="cancel" size="30" color='rgba(255,255,255,0.8)' /> -->
+  </view>
+</view>
