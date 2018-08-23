@@ -1,0 +1,160 @@
+<template>
+    <div id="box">
+
+        <!--中间内容区域-->
+        <subflower :imgs="listDesc"></subflower>
+
+    </div>
+</template>
+
+<script>
+    import subflower from '../../common/subflower.vue';
+
+    export default{
+        /*使用子组件*/
+        components:{
+            subflower
+        },
+        data(){
+            return{
+                listDesc:[
+                    {
+                        one:'../../../statics/images/1505197018304958.png',
+                        two:'',
+                        listInfo:[
+                            {
+                                img:'../../../statics/images/15130678577897.png',
+                                title:'真丝印花眼罩',
+                                desc:'',
+                                tip:'',
+                                money:'¥179元',
+                                add:'f1'
+                            },
+                            {
+                                img:'../../../statics/images/15130677586530.png',
+                                title:'Liberty合作零钱包',
+                                desc:'',
+                                tip:'',
+                                money:'¥149元/月',
+                                add:'f5'
+                            },
+
+                            {
+                                img:'../../../statics/images/15130677167273.png',
+                                title:'真丝经典款化妆包',
+                                desc:'',
+                                tip:'',
+                                money:'¥149元',
+                                add:'f3'
+                            },
+                            {
+                                img:'../../../statics/images/15130762772064.png',
+                                title:'原创设计首饰包',
+                                desc:'',
+                                tip:'',
+                                money:'¥169元',
+                                add:'f4'
+                            },
+                            {
+                                img:'../../../statics/images/15130674787946.png',
+                                title:'真丝贝壳款化妆包',
+                                desc:'',
+                                tip:'',
+                                money:'¥179元/月',
+                                add:'f5'
+                            },
+                            {
+                                img:'../../../statics/images/15130676684822.png',
+                                title:'真丝流苏护照包',
+                                desc:'',
+                                tip:'',
+                                money:'¥89元/月',
+                                add:'f2'
+                            },
+
+                            {
+                                img:'../../../statics/images/15060790368645.jpg',
+                                title:'弗洛拉花瓶',
+                                desc:'',
+                                tip:'',
+                                money:'¥169元起/月',
+                                add:'f4'
+                            },
+                            {
+                                img:'../../../statics/images/15060790535567.jpg',
+                                title:'定制花艺剪',
+                                desc:'',
+                                tip:'',
+                                money:'¥89元/月',
+                                add:'f2'
+                            },
+                            {
+                                img:'../../../statics/images/15060790727202.jpg',
+                                title:'真丝印花眼罩',
+                                desc:'',
+                                tip:'',
+                                money:'¥179元',
+                                add:'f1'
+                            },
+                            {
+                                img:'../../../statics/images/15060790884101.jpg',
+                                title:'Liberty合作零钱包',
+                                desc:'',
+                                tip:'',
+                                money:'¥149元/月',
+                                add:'f5'
+                            },
+                            {
+                                img:'../../../statics/images/15103160311210.jpg',
+                                title:'Amalfi多功能香薰片',
+                                desc:'',
+                                tip:'',
+                                money:'¥89元/月',
+                                add:'f2'
+                            },
+                            {
+                                img:'../../../statics/images/15114254368263.jpg',
+                                title:'MUNIO进口手工裸蜡',
+                                desc:'',
+                                tip:'',
+                                money:'¥169元起/月',
+                                add:'f4'
+                            },
+                            {
+                                img:'../../../statics/images/15103159893802.jpg',
+                                title:'MUNIO进口手工裸蜡',
+                                desc:'',
+                                tip:'',
+                                money:'¥89元/月',
+                                add:'f2'
+                            },
+                            {
+                                img:'../../../statics/images/15127774714958.jpg',
+                                title:'圣诞手作礼盒',
+                                desc:'',
+                                tip:'',
+                                money:'¥179元',
+                                add:'f1'
+                            },
+                        ],
+                        three:'',
+                        four:'',
+                        listLove:[]
+                    }
+                ]
+            }
+        },
+        methods:{
+            menu() {
+                window.scrollTo(0, 0);
+            }
+        },
+        created(){
+            this.menu();
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>
