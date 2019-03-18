@@ -1,0 +1,45 @@
+<!-- 打印的是什么 123-->
+function func(){
+    if(true){
+        var s = 123
+    }
+    console.log(s)
+}
+func()
+
+<!-- 打印的是什么 undefined-->
+function func(){
+    if(true){
+        let s = 123
+    }
+    console.log(s)
+}
+func()
+
+<!-- 打印的是什么 888-->
+function func(){
+    let s = 888
+    if(true){
+        let s = 123
+    }
+    console.log(s)
+}
+func()
+
+<!-- 打印的是什么 undefined-->
+console.log(s)
+var s = 555
+
+<!-- 打印的是什么 报错 s没有定义-->
+console.log(s)
+let s = 555
+
+<!-- 打印的是什么 报错 const定义的常量声明后要赋值-->
+const a;
+console.log(s)
+
+
+<!-- 打印的是什么 [2]-->
+const a = []
+a.push(2)
+console.log(a)

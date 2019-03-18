@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>js的深拷贝和浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      // 深拷贝
+      // 01. JSON.parse(JSON.stringify(XXX))
+      console.log(
+        '----------01. JSON.parse(JSON.stringify(XXX))----------------'
+      )
+      let a = [
+        {
+          aa: undefined,
+          bb: [1, 2, 3],
+          cc: null,
+          dd: new Date(),
+          ee: () => {}
+        }
+      ]
+      let b = JSON.parse(JSON.stringify(a))
+      console.log(a, b)
+
+      let aaa = {
+        name: '小草莓',
+        children: [
+          {
+            name: '小小草莓'
+          }
+        ]
+      }
+
+      console.log('深拷贝')
+      let bbb = [1, [2, 3, 4]]
+      let ccc = JSON.parse(JSON.stringify(bbb))
+      ccc[1][0] = 222
+      console.log(bbb, ccc) // [1,[2,3,4]]   [1,[222,3,4]]
+
+      //   浅拷贝
+      console.log('-----------浅拷贝--------------------')
+      //   01
+      let aa = [1, 2, 3]
+      let bb = aa
+      bb[1] = 22
+      console.log(aa, bb) // (3) [1, 22, 3] (3) [1, 22, 3]
+
+      //   02. slice()
+      console.log('-----------------------slice()--------------------')
+      let c = [1, 2, 3, 4, 5]
+      let d = c.slice(0)
+      d[2] = 333
+      console.log(c, d) // (5) [1, 2, 3, 4, 5] (5) [1, 2, 333, 4, 5]
+
+      let cc = [1, [2, 3, 4]]
+      let ee = cc.slice(0)
+      ee[1][0] = 222
+      console.log(cc, ee) // [1,[222,3,4]]
+
+      //   03.concat()
+      console.log('---------------------------concat()-----------------------')
+      let e = [1, 2, 3, 4]
+      let f = e.concat()
+      f[1] = 222
+      console.log(e, f) // (4) [1, 2, 3, 4] (4) [1, 222, 3, 4]
+
+      let g = [1, [2, 3, 4]]
+      let h = g.concat()
+      h[1][0] = 222
+      console.log(g, h)
+
+      //   自定义方法
+      //util作为判断变量具体类型的辅助模块
+      var util = (function() {
+        var class2type = {}
+        ;[
+          ('Null',
+          'Undefined',
+          'Number',
+          'Boolean',
+          'String',
+          'Object',
+          'Function',
+          'Array',
+          'RegExp',
+          'Date')
+        ].forEach(function(item) {
+          class2type['[object ' + item + ']'] = item.toLowerCase()
+        })
+
+        function isType(obj, type) {
+          return getType(obj) === type
+        }
+        function getType(obj) {
+          return class2type[Object.prototype.toString.call(obj)] || 'object'
+        }
+        return {
+          isType: isType,
+          getType: getType
+        }
+      })()
+
+      function copy(obj, deep) {
+        //如果obj不是对象，那么直接返回值就可以了
+        if (obj === null || typeof obj !== 'object') {
+          return obj
+        }
+        //定义需要的局部变脸，根据obj的类型来调整target的类型
+        var i,
+          target = util.isType(obj, 'array') ? [] : {},
+          value,
+          valueType
+        for (i in obj) {
+          value = obj[i]
+          valueType = util.getType(value)
+
+          //只有在明确执行深复制，并且当前的value是数组或对象的情况下才执行递归复制
+          if (deep && (valueType === 'array' || valueType === 'object')) {
+            target[i] = copy(value)
+          } else {
+            target[i] = value
+          }
+        }
+        return target
+      }
+
+      let array1 = [1, [2, 3, 4]]
+      let array1Copy = copy(array1)
+      array1[0] = 111
+      console.log(array1, array1Copy) // [111,[2,3,4]]   [1,[2,3,4]]
+
+      //   深拷贝的实现
+      function deepClone(obj) {
+        let objClone = Array.isArray(obj) ? [] : {}
+
+        if (obj && typeof obj == 'object') {
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) {
+              //   判断obj子元素是否为对象。如果是，则递归复制
+              if (obj[key] && obj[key] === 'object') {
+                objClone[key] = deepClone(obj[key])
+              } else {
+                // 如果不是，简单复制
+                objClone[key] = obj[key]
+              }
+            }
+          }
+          return objClone
+        } else {
+          //如果obj不是对象，那么直接返回值就可以了
+          return obj
+        }
+      }
+
+      console.log('使用自定义的深拷贝')
+      let arrA = [1, 2, 3]
+      let arrAcopy = deepClone(arrA)
+      arrAcopy[0] = 111
+      console.log(arrA, arrAcopy) // (3) [1, 2, 3] (3) [111, 2, 3]
+
+      let array2 = [1, [2, 3, 4]]
+      let array2Copy = deepClone(array2)
+      array2[0] = 111
+      console.log(array2, array2Copy) // [111,[2,3,4]]   [1,[2,3,4]]
+
+      let stringA = 11
+      let aCopy = deepClone(stringA)
+      stringA = 22
+      console.log(stringA, aCopy) // 22 11
+
+      let stringB = null
+      let bCopy = deepClone(stringB)
+      console.log(bCopy) // null
+
+      //   对象浅拷贝
+      console.log('对象浅拷贝')
+      let arr = [1,2,3,4]
+      let obj1 = { a: 1, b: 2, c: 3 }
+      let obj2 = { a: 11, b: 22, c: 33, d:arr}
+      let obj3 = Object.assign({}, obj1, obj2)
+      obj1.a = 'aaa'
+      obj2.d[0] = 'bbb'
+      console.log(obj1, obj2, obj3)
+      // {a: "aaa", b: 2, c: 3}
+      // {a: 11, b: 22, c: 33, d: ['bb',2,3,4]}
+      // {a: 11, b: 22, c: 33, d: ['bb',2,3,4]}
+    </script>
+  </body>
+</html>
