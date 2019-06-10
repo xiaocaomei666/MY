@@ -177,9 +177,9 @@
 
       //   对象浅拷贝
       console.log('对象浅拷贝')
-      let arr = [1,2,3,4]
+      let arr = [1, 2, 3, 4]
       let obj1 = { a: 1, b: 2, c: 3 }
-      let obj2 = { a: 11, b: 22, c: 33, d:arr}
+      let obj2 = { a: 11, b: 22, c: 33, d: arr }
       let obj3 = Object.assign({}, obj1, obj2)
       obj1.a = 'aaa'
       obj2.d[0] = 'bbb'
@@ -187,6 +187,10 @@
       // {a: "aaa", b: 2, c: 3}
       // {a: 11, b: 22, c: 33, d: ['bb',2,3,4]}
       // {a: 11, b: 22, c: 33, d: ['bb',2,3,4]}
+
+      let options = { a: '11', b: '22', c: '33' }
+
+      console.log('options', Object.keys(options))
     </script>
   </body>
 </html>

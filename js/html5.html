@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      html {
+        font-size: 13.33333333vw;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .header {
+        width: 100%;
+        height: 2rem;
+        background-color: red;
+      }
+      .nav {
+        width: 100%;
+        height: 1.5rem;
+        background-color: orange;
+      }
+      .footer {
+        width: 100%;
+        height: 3rem;
+        background-color: purple;
+      }
+      .content {
+        width: 100%;
+        height: 10rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media (min-width: 560px) {
+        html {
+          font-size: 54px;
+        }
+      }
+    </style>
+    <title>移动端适配</title>
+  </head>
+  <body>
+    <header class="header">头部</header>
+    <nav class="nav" id="nav">导航</nav>
+    <section class="content" id="main">
+      <section class="section">内容</section>
+      <aside class="aside">侧边栏</aside>
+    </section>
+    <footer class="footer" id="footer">底部</footer>
+
+    <script>
+      window.onload = function() {
+        var oNav = document.getElementById('nav')
+        var oFooter = document.getElementById('footer')
+        // 调用 ele.scrollIntoView(), ele 元素顶端会移动到可视区域的顶端; 若传入参数 alignToTop: false, 则 ele 移到屏幕底部;
+        oNav.scrollIntoView()
+        oFooter.scrollIntoView()
+
+        // DOMContentLoaded  优于window.load 执行
+
+        // readystatechange  可用来判断动态载入的 script、link 标签是否加载完成
+        const script = document.createElement('script')
+        script.addEventListener('readystatechange', function eventListener(e) {
+          // // hack 的手段，浏览器自身的问题
+          if (e.readyState === 'loaded' || e.readyState === 'complete') {
+            script.removeEventListener('readystatechange', eventListener)
+          }
+        })
+        script.src = 'example.js'
+        document.body.appendChild(script)
+      }
+    </script>
+  </body>
+</html>

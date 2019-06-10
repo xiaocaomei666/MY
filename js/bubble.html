@@ -1,12 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>事件委托和事件冒泡</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <ul id="ul1">
+      <li>11</li>
+      <li>22</li>
+      <li>33</li>
+      <li>44</li>
+    </ul>
+
+    <div id="box">
+      <input type="button" id="add" value="添加" />
+      <input type="button" id="remove" value="删除" />
+      <input type="button" id="move" value="移动" />
+      <input type="button" id="select" value="选择" />
+    </div>
+
+    <script>
+      //   1. 遍历操作 -- 比较麻烦
+      // window.onload = function () {
+      //     var oUl = document.getElementById('ul1')
+      //     let oLi = oUl.getElementsByTagName('li')
+      //     for (var i = 0; i < oLi.length; i++) {
+      //         console.log(oLi[i])
+      //         oLi[i].onclick = function () {
+      //             alert(123)
+      //         }
+      //     }
+      // }
+
+      //   使用事件委托的方式
+      //   window.onload = function() {
+      //     var oUl = document.getElementById('ul1')
+      //     oUl.onclick = function() {
+      //       alert('利用事件冒泡的原理，将事件委托给父元素')
+      //     }
+      //   }
+
+      // 获取事件的目标节点 -- 事件源。
+      //  标准浏览器 e.target
+      // IE浏览器 e.srcElement
+      //   这样改下就只有点击li会触发事件了，且每次只执行一次dom操作，如果li数量很多的话，将大大减少dom的操作，优化的性能可想而知！
+      // window.onload = function () {
+      //         var oUl = document.getElementById('ul1')
+      //         oUl.onclick = function (e) {
+      //             console.log(e)
+      //             var ev = e || window.event;
+      //             var target = ev.target || ev.srcElement;
+      //             if (target.nodeName.toLowerCase() == 'li') {
+      //                 alert('获取事件的目标节点')
+      //             }
+      //         }
+      //     }
+
+      //   每个li点击的效果不同的时候
+      //   4个按钮，点击每一个做不同的操作，那么至少需要4次dom操作，
+      // window.onload = function() {
+      //   var add = document.getElementById('add')
+      //   var remove = document.getElementById('remove')
+      //   var move = document.getElementById('move')
+      //   var select = document.getElementById('select')
+      //   add.onclick = function() {
+      //     alert('添加')
+      //   }
+      //   remove.onclick = function() {
+      //     alert('删除')
+      //   }
+      //   move.onclick = function() {
+      //     alert('移动')
+      //   }
+      //   select.onclick = function() {
+      //     alert('选择')
+      //   }
+      // }
+
+      //   使用事件委托实现，可以减少DOM操作
+      //   用事件委托就可以只用一次dom操作就能完成所有的效果，比上面的性能肯定是要好一些的
+      // window.onload = function() {
+      //   var oBox = document.getElementById('box')
+      //   oBox.onclick = function(e) {
+      //     console.log(e)
+      //     var ev = e || window.event
+      //     var target = ev.target || ev.srcElement
+      //     console.log(target)
+      //     switch (target.id) {
+      //       case 'add':
+      //         alert('add')
+      //         break
+      //       case 'remove':
+      //         alert('remove')
+      //         break
+      //       case 'move':
+      //         alert('move')
+      //         break
+      //       case 'select':
+      //         alert('select')
+      //         break
+      //     }
+      //   }
+      // }
+
+      //   如何实现新增的节点也有事件？
+      //   一般的做法，新增的元素是没有事件的，说明添加子节点的时候，事件没有一起添加进去
+
+      // 一般的解决方案会是这样，将for循环用一个函数包起来，命名为mHover
+      //   虽然功能实现了，看着还挺好，但实际上无疑是又增加了一个dom操作，在优化性能方面是不可取的
+      // window.onload = function() {
+      //   var oUl = document.getElementById('ul1')
+      //   var oLi = oUl.getElementsByTagName('li')
+      //   var add = document.getElementById('add')
+      //   var num = oLi.length
+
+      //   // li 移入底色变红 移出变白
+      //   function mHover() {
+      //     for (var i = 0; i < oLi.length; i++) {
+      //       oLi[i].onmouseover = function() {
+      //         this.style.background = 'red'
+      //       }
+      //       oLi[i].onmouseout = function() {
+      //         this.style.background = '#fff'
+      //       }
+      //     }
+      //   }
+
+      //   mHover()
+
+      //   // 添加新节点
+      //   add.onclick = function() {
+      //     num++
+      //     var newLi = document.createElement('li')
+      //     newLi.innerHTML = 11 * num
+      //     ul1.appendChild(newLi)
+      //     mHover()
+      //   }
+      // }
+
+      //使用事件委托的方式实现
+      //   用事件委托的方式，新添加的子元素是带有事件效果的
+      //   当用事件委托的时候，根本就不需要去遍历元素的子节点，只需要给父级元素添加事件就好了，其他的都是在js里面的执行，这样可以大大的减少dom操作，这才是事件委托的精髓所在。
+      window.onload = function() {
+        var oUl = document.getElementById('ul1')
+        var add = document.getElementById('add')
+        var num = oUl.getElementsByTagName('li').length
+        oUl.onmouseover = function(e) {
+          var ev = e || window.event
+          var target = e.target || e.srcElement
+          if (target.nodeName.toLowerCase() == 'li') {
+            target.style.background = 'red'
+          }
+        }
+        oUl.onmouseout = function(e) {
+          var ev = e || window.event
+          var target = e.target || e.srcElement
+          if (target.nodeName.toLowerCase() == 'li') {
+            target.style.background = '#fff'
+          }
+        }
+        add.onclick = function() {
+          num++
+          var newLi = document.createElement('li')
+          newLi.innerHTML = num * 11
+          oUl.appendChild(newLi)
+        }
+      }
+
+
+    </script>
+  </body>
 </html>
